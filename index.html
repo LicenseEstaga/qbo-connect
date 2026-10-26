@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>QuickBooks Connect</title>
+<style>
+  :root { --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #5d6576; --accent: #2c7a3f; --border: #d9dde4; --err: #b42318; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14171c; --card: #1d2128; --text: #e8eaee; --muted: #a0a7b4; --accent: #5cc27a; --border: #333a45; --err: #f97066; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 640px; margin: 48px auto; padding: 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  p { margin: 0 0 16px; color: var(--muted); }
+  textarea { width: 100%; height: 110px; padding: 10px; font: 13px/1.4 ui-monospace, Consolas, monospace; color: var(--text);
+             background: var(--bg); border: 1px solid var(--border); border-radius: 8px; resize: none; word-break: break-all; }
+  button { margin-top: 12px; padding: 10px 20px; font: inherit; font-weight: 600; color: #fff; background: var(--accent);
+           border: 0; border-radius: 8px; cursor: pointer; }
+  .ok { color: var(--accent); font-weight: 600; margin-left: 10px; }
+  .err { color: var(--err); }
+  .note { font-size: 13px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card" id="card">
+    <h1>QuickBooks Connect</h1>
+    <p>This page only helps an internal tool finish connecting to QuickBooks. It stores and sends nothing.</p>
+  </div>
+</main>
+<script>
+  // Everything happens in this browser tab: the address is only shown so it can be pasted into the local terminal.
+  var card = document.getElementById("card");
+  var params = new URLSearchParams(location.search);
+  if (params.get("error")) {
+    card.innerHTML = '<h1 class="err">Connection was not completed</h1><p>QuickBooks returned: <b></b>. Close this tab and start again.</p>';
+    card.querySelector("b").textContent = params.get("error");
+  } else if (params.get("code") && params.get("realmId")) {
+    card.innerHTML =
+      '<h1>QuickBooks: almost done</h1>' +
+      '<p>Copy the address below and paste it into the terminal window, then press Enter. ' +
+      'The code is valid for about 5 minutes. Do not paste it into chats or emails.</p>' +
+      '<p lang="ru">Скопируйте адрес ниже и вставьте его в окно терминала, затем нажмите Enter. Код действует около 5 минут. Не вставляйте его в чаты и письма.</p>' +
+      '<textarea id="url" readonly></textarea>' +
+      '<button id="copy">Copy</button><span id="done" class="ok"></span>' +
+      '<p class="note">This page stores and sends nothing.</p>';
+    var box = document.getElementById("url");
+    box.value = location.href;
+    document.getElementById("copy").onclick = function () {
+      box.select();
+      var ok = function () { document.getElementById("done").textContent = "Copied"; };
+      if (navigator.clipboard) navigator.clipboard.writeText(box.value).then(ok, function () { document.execCommand("copy"); ok(); });
+      else { document.execCommand("copy"); ok(); }
+    };
+  }
+</script>
+</body>
+</html>
