@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Privacy Policy</title>
+<style>
+  :root { --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #5d6576; --border: #d9dde4; --link: #1f6f3a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14171c; --card: #1d2128; --text: #e8eaee; --muted: #a0a7b4; --border: #333a45; --link: #5cc27a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 40px auto; padding: 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 28px 0 8px; }
+  p, li { margin: 0 0 10px; }
+  .meta { color: var(--muted); margin-bottom: 20px; }
+  a { color: var(--link); }
+  footer { color: var(--muted); font-size: 14px; margin-top: 20px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Estaga Accounting Assistant &middot; Effective October 27, 2026</p>
+
+    <p>Estaga Accounting Assistant (the "App") is a private, internal tool operated by Estaga
+    (<a href="https://estaga.com">estaga.com</a>). It connects only to Estaga's own QuickBooks Online company
+    and is used only by authorized Estaga personnel. It is not offered, sold or made available to any other
+    business or individual. This policy explains how the App handles QuickBooks data.</p>
+
+    <h2>Data the App accesses</h2>
+    <p>With the QuickBooks Online Accounting permission (<code>com.intuit.quickbooks.accounting</code>), the App can
+    access Estaga's accounting data: company information, chart of accounts, vendors, customers, products and
+    services, transactions (such as bills, expenses, invoices, payments and journal entries) and financial reports.
+    The App does not request Payroll or Payments permissions.</p>
+
+    <h2>How the data is used</h2>
+    <ul>
+      <li>To help Estaga staff with bookkeeping: reviewing reports, reconciling accounts and preparing entries such as
+      bills and journal entries from Estaga's own source documents.</li>
+      <li>Every change to QuickBooks (create, update or delete) is shown to a staff member as a preview and is sent
+      only after that person explicitly approves it.</li>
+      <li>Data is used solely for Estaga's own benefit. It is not sold, rented, aggregated with other companies' data,
+      or used for advertising.</li>
+    </ul>
+
+    <h2>AI processing</h2>
+    <p>The App uses Claude, an AI model provided by Anthropic, as an assistant for Estaga staff. QuickBooks data
+    needed for a task is processed by Anthropic as Estaga's service provider, only to perform that task. Under
+    Anthropic's commercial terms, this data is not used to train Anthropic's models. No other third party receives
+    QuickBooks data from the App.</p>
+
+    <h2>Storage and security</h2>
+    <ul>
+      <li>The App has no server or database of its own. It runs on a company computer.</li>
+      <li>OAuth tokens and app credentials are stored locally on that computer, outside cloud-synced folders, and are
+      never published or shared.</li>
+      <li>The App keeps a local log of API errors and of changes it makes (time, record ID, document number and
+      Intuit's request ID) for troubleshooting and audit. Tokens and credentials are never written to the log.</li>
+      <li>All communication with Intuit uses HTTPS and OAuth 2.0.</li>
+      <li>The connection page at <a href="./">licenseestaga.github.io/qbo-connect</a> only displays the address
+      returned by Intuit so it can be copied into the App. It stores and sends nothing.</li>
+    </ul>
+
+    <h2>Retention and disconnecting</h2>
+    <p>Local logs are kept only as long as needed for troubleshooting and audit, and are then deleted. Access can be
+    removed at any time by disconnecting the App in QuickBooks Online (Apps &rarr; My Apps) or with the App's own
+    disconnect function, which revokes the authorization at Intuit and deletes the locally stored tokens.</p>
+
+    <h2>Changes and contact</h2>
+    <p>Estaga may update this policy; the effective date above will change accordingly. Questions about this policy
+    can be sent to Estaga using the contact details at <a href="https://estaga.com">estaga.com</a>.</p>
+  </div>
+  <footer><a href="terms.html">Terms of Use</a> &middot; <a href="privacy.html">Privacy Policy</a></footer>
+</main>
+</body>
+</html>
