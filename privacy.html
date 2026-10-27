@@ -20,6 +20,9 @@
   p, li { margin: 0 0 10px; }
   .meta { color: var(--muted); margin-bottom: 20px; }
   a { color: var(--link); }
+  .summary { border: 1px solid var(--border); border-left: 4px solid var(--link); border-radius: 8px; padding: 14px 18px; margin: 0 0 20px; }
+  .summary strong { display: block; margin-bottom: 6px; }
+  .summary ul { margin: 0; padding-left: 20px; }
   footer { color: var(--muted); font-size: 14px; margin-top: 20px; text-align: center; }
 </style>
 </head>
@@ -34,6 +37,19 @@
     and is used only by authorized Estaga personnel. It is not offered, sold or made available to any other
     business or individual. This policy explains how the App handles QuickBooks data.</p>
 
+    <div class="summary">
+      <strong>Internal use only</strong>
+      <ul>
+        <li>QuickBooks data accessed by the App belongs to Estaga and is used only inside Estaga, for Estaga's own
+        accounting.</li>
+        <li>It is never sold, rented, shared, published, disclosed or transferred to anyone outside Estaga.</li>
+        <li>It is never combined with other companies' data, used for marketing or advertising, or used to build or
+        improve any product or service for others.</li>
+        <li>No one outside Estaga can use the App or see the data. The only exception is the AI service provider
+        described below, which processes data solely to carry out a task requested by Estaga staff.</li>
+      </ul>
+    </div>
+
     <h2>Data the App accesses</h2>
     <p>With the QuickBooks Online Accounting permission (<code>com.intuit.quickbooks.accounting</code>), the App can
     access Estaga's accounting data: company information, chart of accounts, vendors, customers, products and
@@ -46,15 +62,19 @@
       bills and journal entries from Estaga's own source documents.</li>
       <li>Every change to QuickBooks (create, update or delete) is shown to a staff member as a preview and is sent
       only after that person explicitly approves it.</li>
-      <li>Data is used solely for Estaga's own benefit. It is not sold, rented, aggregated with other companies' data,
-      or used for advertising.</li>
+      <li>Data is used solely for Estaga's own benefit and never for any purpose unrelated to Estaga's accounting.</li>
     </ul>
 
     <h2>AI processing</h2>
-    <p>The App uses Claude, an AI model provided by Anthropic, as an assistant for Estaga staff. QuickBooks data
-    needed for a task is processed by Anthropic as Estaga's service provider, only to perform that task. Under
-    Anthropic's commercial terms, this data is not used to train Anthropic's models. No other third party receives
-    QuickBooks data from the App.</p>
+    <p>The App uses Claude, an AI model provided by Anthropic, as an assistant for Estaga staff. Only the QuickBooks
+    data needed for a specific task requested by a staff member is sent to Anthropic, which processes it on Estaga's
+    behalf solely to perform that task. Estaga's Anthropic account is configured so that this data is not used to
+    train AI models. Anthropic does not receive access to Estaga's QuickBooks company itself; it only sees the data
+    included in a request.</p>
+
+    <h2>Sharing</h2>
+    <p>Estaga does not share QuickBooks data obtained through the App with any third party. Apart from the AI
+    processing described above, data is disclosed outside Estaga only if Estaga is required to do so by law.</p>
 
     <h2>Storage and security</h2>
     <ul>
